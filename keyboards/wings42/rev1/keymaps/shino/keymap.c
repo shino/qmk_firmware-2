@@ -41,27 +41,30 @@ enum custom_keycodes {
 #define KC_sf_r LSFT(KC_RGHT)   // Widen
 
 // Launcher
-#define KC_LA   KC_F2
+#define KC_LP   KC_F2
+#define KC_LS   KC_F3
 
 // Left thumbs
-#define KC_LAgu LGUI_T(KC_LA)
-#define KC_LAal LALT_T(KC_LA)
-#define KC_O_ct LCTL_T(KC_O)
+#define KC_LPgu LGUI_T(KC_LP)
+#define KC_LPal LALT_T(KC_LP)
+#define KC_LSct LCTL_T(KC_LS)
+#define KC_JAex LT(_S_SYMB, KC_JA)
 
 // Right thumbs
 #define KC_SPsy LT(_SYMBOL, KC_SPC)
-#define KC_Z_ss LT(_S_SYMB, KC_Z)
+#define KC_MIss LT(_S_SYMB, KC_MINUS)
+#define KC_ENex LT(_S_SYMB, KC_EN)
 
 // with shift
 #define KC_A_sf LSFT_T(KC_A)
 #define KC_R_sf LSFT_T(KC_R)
 
-// Toggle layers
-#define KC_ex   EXTRA_ON
-#define KC_exx  EXTRA_OFF
-#define KC_sy   SYMBOL_ON
-#define KC_syx  SYMBOL_OFF
-#define KC__ss   TG(_S_SYMB)
+/* // Toggle layers */
+/* #define KC_ex   EXTRA_ON */
+/* #define KC_exx  EXTRA_OFF */
+/* #define KC_sy   SYMBOL_ON */
+/* #define KC_syx  SYMBOL_OFF */
+/* #define KC__ss  TG(_S_SYMB) */
 
 
 // misc
@@ -70,23 +73,23 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FINCOL] = LAYOUT_kc(
   //,------+------+------+------+------+------.   ,------+------+------+------+------+------.
-      VOLU ,  Q   ,  D   ,  G   ,  C   , MPLY ,      sy  ,  B   ,  N   ,  P   ,  F   ,  UP  ,
+      VOLU ,  Q   ,  D   ,  Y   ,  C   , MPLY ,     RGHT ,  B   ,  N   ,  P   ,  F   ,  UP  ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-      VOLD , A_sf ,  I   ,  U   ,  E   ,  ex  ,     ENT  ,  M   ,  S   ,  T   , R_sf , DOWN ,
+      VOLD , A_sf ,  O   ,  E   ,  I   ,  U   ,      G   ,  M   ,  S   ,  T   , R_sf , ENT  ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-      BSPC ,  V   ,  X   ,  W   ,  Y   , MNXT ,     WBAK ,  H   ,  J   ,  K   ,  L   , RGHT ,
+      WBAK ,  V   ,  X   ,  W   ,  Z   , DEL  ,     LEFT ,  H   ,  J   ,  K   ,  L   , DOWN ,
   //`------+------+------+------+------+------'   `------+------+------+------+------+------'
-                            EN  , O_ct , LAal ,     Z_ss , SPsy ,  JA
+                           ENex , LSct , LPal ,     MIss , SPsy , JAex
   //                     `------+------+------'   `------+------+------'
   ),
 
   [_SYMBOL] = LAYOUT_kc( \
   //,------+------+------+------+------+------.   ,------+------+------+------+------+------.
-           , DQUO ,  7   ,  8   ,  9   ,      ,      syx , PLUS , LPRN , RPRN , TILD ,      ,
+           ,  0   ,  7   ,  8   ,  9   ,      ,          , LPRN , RPRN , LBRC , RBRC ,      ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-           , UNDS ,  4   ,  5   ,  6   ,      ,          , MINS , COMM , DOT  , SLSH ,      ,
+           ,  0   ,  4   ,  5   ,  6   , TILD ,     PLUS , EQL  , COMM , DOT  , SLSH ,      ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-           ,  0   ,  1   ,  2   ,  3   ,      ,          , EQL  , LBRC , RBRC , BSLS ,      ,
+           ,  0   ,  1   ,  2   ,  3   ,      ,          ,      ,      ,      ,      ,      ,
   //`------+------+------+------+------+------'   `------+------+------+------+------+------'
                                 ,      ,      ,          ,      ,
   //                     `------+------+------'   `------+------+------'
@@ -94,11 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_S_SYMB] = LAYOUT_kc( \
   //,------+------+------+------+------+------.   ,------+------+------+------+------+------.
-           , QUOT , AMPR , ASTR , DQUO ,      ,          ,      , sf_l , sf_r , GRV  , RSET ,
+           , sf_l , AMPR , ASTR , sf_r ,      ,          , QUOT , DQUO , LCBR , RCBR , RSET ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-           , COLN , DLR  , PERC , CIRC ,      ,          ,  EN  ,  LT  ,  GT  , QUES ,      ,
+           , PIPE , DLR  , PERC , CIRC ,      ,     GRV  , COLN ,  LT  ,  GT  , QUES ,      ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-           , SCLN , EXLM ,  AT  , HASH ,      ,          ,  JA  , LCBR , RCBR , PIPE ,      ,
+           , BSLS , EXLM ,  AT  , HASH ,      ,          , SCLN ,      ,      ,      ,      ,
   //`------+------+------+------+------+------'   `------+------+------+------+------+------'
                                 ,      ,      ,          ,      ,
   //                     `------+------+------'   `------+------+------'
@@ -108,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,------+------+------+------+------+------.   ,------+------+------+------+------+------.
            ,      ,      ,      ,      ,      ,          , WH_L , WH_D , WH_U , WH_R ,      ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
-           ,      ,      ,      ,      , exx  ,          , MS_L , MS_D , MS_U , MS_R ,      ,
+           ,      ,      ,      ,      ,      ,          , MS_L , MS_D , MS_U , MS_R ,      ,
   //|------+------+------+------+------+------|   |------+------+------+------+------+------|
            ,      ,      ,      ,      ,      ,          , LEFT , DOWN ,  UP  , RGHT ,      ,
   //`------+------+------+------+------+------'   `------+------+------+------+------+------'
