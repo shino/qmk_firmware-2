@@ -48,12 +48,12 @@ enum custom_keycodes {
 #define KC_LPgu LGUI_T(KC_LP)
 #define KC_LPal LALT_T(KC_LP)
 #define KC_LSct LCTL_T(KC_LS)
-#define KC_JAex LT(_S_SYMB, KC_JA)
+#define KC_JAex LT(_EXTRA, KC_JA)
 
 // Right thumbs
 #define KC_SPsy LT(_SYMBOL, KC_SPC)
 #define KC_MIss LT(_S_SYMB, KC_MINUS)
-#define KC_ENex LT(_S_SYMB, KC_EN)
+#define KC_ENex LT(_EXTRA, KC_EN)
 
 // with shift
 #define KC_A_sf LSFT_T(KC_A)
